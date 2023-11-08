@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/1T5l3OncqZqGVZQd+fi3uJs6VabNWrDjDzZZRF7qYPQMZsK0fsxkhqAAxG5GFuSveqqibFaGnxQDHjM+e9uwQ==",
+  "dgSpecHash": "6Yt1b0oNPfP6YYmpPRHRnXl8fdV9fVILoXKq/RlYZRwjws2q7Ry5i8LLHkMW/tVTbdnHxqpJ46UGqsRYLvyiuQ==",
   "success": true,
-  "projectFilePath": "/home/matheus-fonseca-nascimento/dotnet/Semana1/Aula1/Aula1.csproj",
+  "projectFilePath": "/home/matheus-fonseca-nascimento/dotnet_T1/Semana1/Aula1/Aula1.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
