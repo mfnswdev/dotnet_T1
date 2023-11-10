@@ -63,3 +63,33 @@ double numeroDouble = 9.37;
     Console.WriteLine(comparacao);
 
 #endregion
+
+#region Operador de igualdade
+    string str1 = "hello";
+    string str2 = "world";
+    string compare;
+        compare = str1 == str2 ? "São iguais" : "Não são iguais";
+        Console.WriteLine(compare);
+#endregion
+
+#region Operador lógico
+    bool condicao1 = true;
+    bool condicao2 = false;
+    string result1;
+
+        result1 = (condicao1 && condicao2) ? "Ambos são verdadeiros." : "Pelo menos uma das condições é falsa.";
+        Console.WriteLine(result1);
+#endregion
+
+#region Mix de Operadores
+    int num1 = 7;
+    int num2 = 3;
+    int num3 = 10;
+        bool verifica1;
+        bool verifica2;
+
+            verifica1 = (num1 > num2) ? true : false;
+            Console.WriteLine(verifica1);
+            verifica2 = (num3 == (num1+num2)) ? true : false;
+            Console.WriteLine(verifica2);
+#endregion
