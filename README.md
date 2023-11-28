@@ -1,4 +1,4 @@
-# Repositório para Desenvolvimento de Projetos FrontEnd da Turma 3 da Residência em Software TIC18
+# Repositório para Desenvolvimento de Projetos .NET da Turma 1 da Residência em Software TIC18
 
 ## Desenvolvedor: Matheus Fonseca
 ## Stack: Software Development Intern
