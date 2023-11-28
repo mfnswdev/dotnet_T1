@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\Desktop\\Residência em Software TIC18\\Aulas\\Módulo II\\dotnet T1\\dotnet_T1\\Semana1\\Aula1\\Aula1.csproj": {}
+    "C:\\Users\\User\\Desktop\\Residência em Software TIC18\\Aulas\\Módulo II\\dotNet T1\\dotnet_T1\\Semana1\\Aula1\\Aula1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\Desktop\\Residência em Software TIC18\\Aulas\\Módulo II\\dotnet T1\\dotnet_T1\\Semana1\\Aula1\\Aula1.csproj": {
+    "C:\\Users\\User\\Desktop\\Residência em Software TIC18\\Aulas\\Módulo II\\dotNet T1\\dotnet_T1\\Semana1\\Aula1\\Aula1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Desktop\\Residência em Software TIC18\\Aulas\\Módulo II\\dotnet T1\\dotnet_T1\\Semana1\\Aula1\\Aula1.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\Residência em Software TIC18\\Aulas\\Módulo II\\dotNet T1\\dotnet_T1\\Semana1\\Aula1\\Aula1.csproj",
         "projectName": "Aula1",
-        "projectPath": "C:\\Users\\User\\Desktop\\Residência em Software TIC18\\Aulas\\Módulo II\\dotnet T1\\dotnet_T1\\Semana1\\Aula1\\Aula1.csproj",
+        "projectPath": "C:\\Users\\User\\Desktop\\Residência em Software TIC18\\Aulas\\Módulo II\\dotNet T1\\dotnet_T1\\Semana1\\Aula1\\Aula1.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Desktop\\Residência em Software TIC18\\Aulas\\Módulo II\\dotnet T1\\dotnet_T1\\Semana1\\Aula1\\obj\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\Residência em Software TIC18\\Aulas\\Módulo II\\dotNet T1\\dotnet_T1\\Semana1\\Aula1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config"
