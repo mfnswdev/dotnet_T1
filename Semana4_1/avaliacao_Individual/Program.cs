@@ -87,7 +87,7 @@ public class Program
 #endregion
 */
 
-/* #region Relatórios
+/*#region Relatórios
 
 public class ReportGenerator
 {
@@ -115,7 +115,7 @@ public class ReportGenerator
 #endregion */
 
 
- /* #region Complete Solution - Clinical Management App (v1.0)
+/* #region Complete Solution - Clinical Management App (v1.0)
 
 public class Pessoa
 {
@@ -215,6 +215,9 @@ public class Program
 */
 
 #region Clinical Management App (v2.0 - Final Version)
+
+/* SOLUCÃO FINAL - Clinical Management App (v2.0 - Final Version) 
+Com validadores de CPF e idade, try catch, etc. */
 
 using System;
 using System.Collections.Generic;
