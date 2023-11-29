@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\Desktop\\Residência em Software TIC18\\Aulas\\Módulo II\\dotnet T1\\dotnet_T1\\Semana1\\Aula1\\Aula1.csproj": {}
+    "/home/matheus-fonseca-nascimento/Documentos/Workspace/dotnet_T1/Semana1/Aula1/Aula1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\Desktop\\Residência em Software TIC18\\Aulas\\Módulo II\\dotnet T1\\dotnet_T1\\Semana1\\Aula1\\Aula1.csproj": {
+    "/home/matheus-fonseca-nascimento/Documentos/Workspace/dotnet_T1/Semana1/Aula1/Aula1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Desktop\\Residência em Software TIC18\\Aulas\\Módulo II\\dotnet T1\\dotnet_T1\\Semana1\\Aula1\\Aula1.csproj",
+        "projectUniqueName": "/home/matheus-fonseca-nascimento/Documentos/Workspace/dotnet_T1/Semana1/Aula1/Aula1.csproj",
         "projectName": "Aula1",
-        "projectPath": "C:\\Users\\User\\Desktop\\Residência em Software TIC18\\Aulas\\Módulo II\\dotnet T1\\dotnet_T1\\Semana1\\Aula1\\Aula1.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Desktop\\Residência em Software TIC18\\Aulas\\Módulo II\\dotnet T1\\dotnet_T1\\Semana1\\Aula1\\obj\\",
+        "projectPath": "/home/matheus-fonseca-nascimento/Documentos/Workspace/dotnet_T1/Semana1/Aula1/Aula1.csproj",
+        "packagesPath": "/home/matheus-fonseca-nascimento/.nuget/packages/",
+        "outputPath": "/home/matheus-fonseca-nascimento/Documentos/Workspace/dotnet_T1/Semana1/Aula1/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/matheus-fonseca-nascimento/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -53,7 +53,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/7.0.114/RuntimeIdentifierGraph.json"
         }
       }
     }

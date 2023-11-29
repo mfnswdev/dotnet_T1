@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/matheus-fonseca-nascimento/dotnet/helloworld/helloworld.csproj",
+      "projectUniqueName": "/home/matheus-fonseca-nascimento/Documentos/Workspace/dotnet_T1/Semana1/helloworld/helloworld.csproj",
       "projectName": "helloworld",
-      "projectPath": "/home/matheus-fonseca-nascimento/dotnet/helloworld/helloworld.csproj",
+      "projectPath": "/home/matheus-fonseca-nascimento/Documentos/Workspace/dotnet_T1/Semana1/helloworld/helloworld.csproj",
       "packagesPath": "/home/matheus-fonseca-nascimento/.nuget/packages/",
-      "outputPath": "/home/matheus-fonseca-nascimento/dotnet/helloworld/obj/",
+      "outputPath": "/home/matheus-fonseca-nascimento/Documentos/Workspace/dotnet_T1/Semana1/helloworld/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/matheus-fonseca-nascimento/.nuget/NuGet/NuGet.Config"
@@ -59,7 +59,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/7.0.113/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/7.0.114/RuntimeIdentifierGraph.json"
       }
     }
   }
