@@ -1,12 +1,14 @@
 using TechMed.Application.Services;
 using TechMed.Application.Services.Interfaces;
+using TechMed.Infrastructure.Persistence.Context;
 using TechMed.Infrastructure.Persistence;
 using TechMed.Infrastructure.Persistence.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddSingleton<ITechMedContext, TechMedContext>();
+// builder.Services.AddSingleton<ITechMedContext, TechMedContext>();
+builder.Services.AddSingleton<TechMedDbContext>();
 builder.Services.AddScoped<IMedicoService, MedicoService>();
 builder.Services.AddScoped<IPacienteService, PacienteService>();
 builder.Services.AddScoped<IAtendimentoService, AtendimentoService>();
