@@ -9,5 +9,7 @@ public class ChassiMiddleware
     public async Task Invoke(HttpContext context){
         await context.Response.WriteAsync("Chassi instalado ao carro\n");
         await _next.Invoke(context);
+
+        await context.Response.WriteAsync("Processo de montagem finalizado!\n");
     }
 }

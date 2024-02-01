@@ -11,10 +11,6 @@ app.UseMiddleware<PortasMiddleware>();
 app.UseMiddleware<PinturaMiddleware>();
 app.UseMiddleware<InternoMiddleware>();
 
-app.Run(async context =>
-{
-    await context.Response.WriteAsync("Processo de montagem do carro finalizado!\n");
-});
 
 
 app.Run();

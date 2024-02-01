@@ -8,6 +8,6 @@ public class InternoMiddleware
 
     public async Task Invoke(HttpContext context){
         await context.Response.WriteAsync("Componentes Internos instalados ao carro\n");
-        await _next.Invoke(context);
+        
     }
 }
