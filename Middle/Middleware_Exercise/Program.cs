@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.Hosting;
 using Middleware_Exercise;
 
 var builder = WebApplication.CreateBuilder(args);

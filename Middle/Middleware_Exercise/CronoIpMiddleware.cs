@@ -16,12 +16,17 @@ public class CronoIpMiddleware
         
         requestTime.Start();
         var ipAddress = context.Connection.RemoteIpAddress;
+
+        context.Response.Headers.Add("X-IP-Address", ipAddress.ToString());
+        context.Response.Headers.Add("X-Request-Time-Microseconds", horaStart.ToString());
+
         await context.Response.WriteAsync("Hora do request: " + horaStart.ToString() + "\n");
         await context.Response.WriteAsync("ipAdress " + ipAddress + "\n");       
         await _next.Invoke(context);
         requestTime.Stop();
-        await context.Response.WriteAsync("Tempo de resposta: " + requestTime.ElapsedMilliseconds + "milliseconds\n");
-        await context.Response.WriteAsync("Tempo de resposta: " + requestTime.ElapsedTicks + "microseconds\n");
+
+        await context.Response.WriteAsync("Tempo de resposta: " + requestTime.ElapsedMilliseconds + " milliseconds\n");
+        await context.Response.WriteAsync("Tempo de resposta: " + requestTime.ElapsedTicks + " microseconds\n");
           
     }
 
