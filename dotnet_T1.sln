@@ -77,6 +77,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Middle", "Middle", "{4033CB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Middleware_Exercise", "Middle\Middleware_Exercise\Middleware_Exercise.csproj", "{C01BB12E-93A1-40C1-9294-38DC133C6D24}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AuthValidator_Example", "AuthValidator_Example", "{EC28DCBA-D8FA-45D8-AAAA-0BEE052D7DB6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "webapiAuthExample", "AuthValidator_Example\webapiAuthExample\webapiAuthExample.csproj", "{F63F478B-62E5-4482-87D6-559B5FBA8424}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -179,6 +183,10 @@ Global
 		{C01BB12E-93A1-40C1-9294-38DC133C6D24}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C01BB12E-93A1-40C1-9294-38DC133C6D24}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C01BB12E-93A1-40C1-9294-38DC133C6D24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F63F478B-62E5-4482-87D6-559B5FBA8424}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F63F478B-62E5-4482-87D6-559B5FBA8424}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F63F478B-62E5-4482-87D6-559B5FBA8424}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F63F478B-62E5-4482-87D6-559B5FBA8424}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -207,6 +215,7 @@ Global
 		{F7AFB58F-FD3B-490B-84CB-E65D7A552F04} = {F32E7061-A7FE-4651-BA0A-D80DD9E080F0}
 		{8B7958FE-7F83-4187-BDDA-C92F11916043} = {F23E907A-21D4-4201-A02A-810DB15E9234}
 		{C01BB12E-93A1-40C1-9294-38DC133C6D24} = {4033CB9B-19E2-4FF5-84D4-254E5FD83429}
+		{F63F478B-62E5-4482-87D6-559B5FBA8424} = {EC28DCBA-D8FA-45D8-AAAA-0BEE052D7DB6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1799D874-D202-42D5-9456-73E2D5B248EB}
