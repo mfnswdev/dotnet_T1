@@ -81,6 +81,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AuthValidator_Example", "Au
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "webapiAuthExample", "AuthValidator_Example\webapiAuthExample\webapiAuthExample.csproj", "{F63F478B-62E5-4482-87D6-559B5FBA8424}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "mvc_Exercise", "mvc_Exercise", "{135EDD98-04D9-4D29-82F2-BEA6CCB82C9F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcMovie", "mvc_Exercise\MvcMovie\MvcMovie.csproj", "{49F18452-50ED-4D90-A1A1-F0272434E69F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -187,6 +191,10 @@ Global
 		{F63F478B-62E5-4482-87D6-559B5FBA8424}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F63F478B-62E5-4482-87D6-559B5FBA8424}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F63F478B-62E5-4482-87D6-559B5FBA8424}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49F18452-50ED-4D90-A1A1-F0272434E69F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49F18452-50ED-4D90-A1A1-F0272434E69F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49F18452-50ED-4D90-A1A1-F0272434E69F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49F18452-50ED-4D90-A1A1-F0272434E69F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -216,6 +224,7 @@ Global
 		{8B7958FE-7F83-4187-BDDA-C92F11916043} = {F23E907A-21D4-4201-A02A-810DB15E9234}
 		{C01BB12E-93A1-40C1-9294-38DC133C6D24} = {4033CB9B-19E2-4FF5-84D4-254E5FD83429}
 		{F63F478B-62E5-4482-87D6-559B5FBA8424} = {EC28DCBA-D8FA-45D8-AAAA-0BEE052D7DB6}
+		{49F18452-50ED-4D90-A1A1-F0272434E69F} = {135EDD98-04D9-4D29-82F2-BEA6CCB82C9F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1799D874-D202-42D5-9456-73E2D5B248EB}
