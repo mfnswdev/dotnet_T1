@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MvcMovie.Data;
 
@@ -10,32 +11,22 @@ using MvcMovie.Data;
 namespace MvcMovie.Migrations
 {
     [DbContext(typeof(MvcMovieContext))]
-    partial class MvcMovieContextModelSnapshot : ModelSnapshot
+    [Migration("20240223181349_FourthMigration")]
+    partial class FourthMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.16");
-
-            modelBuilder.Entity("ArtistMovie", b =>
-                {
-                    b.Property<int>("Artistsid")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("MoviesId")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("Artistsid", "MoviesId");
-
-                    b.HasIndex("MoviesId");
-
-                    b.ToTable("ArtistMovie");
-                });
 
             modelBuilder.Entity("MvcMovie.Models.Artist", b =>
                 {
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("MovieId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("bio")
@@ -48,6 +39,8 @@ namespace MvcMovie.Migrations
                         .HasColumnType("TEXT");
 
                     b.HasKey("id");
+
+                    b.HasIndex("MovieId");
 
                     b.ToTable("Artist");
                 });
@@ -121,19 +114,16 @@ namespace MvcMovie.Migrations
                     b.ToTable("User");
                 });
 
-            modelBuilder.Entity("ArtistMovie", b =>
+            modelBuilder.Entity("MvcMovie.Models.Artist", b =>
                 {
-                    b.HasOne("MvcMovie.Models.Artist", null)
-                        .WithMany()
-                        .HasForeignKey("Artistsid")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("MvcMovie.Models.Movie", null)
-                        .WithMany()
-                        .HasForeignKey("MoviesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .WithMany("Artists")
+                        .HasForeignKey("MovieId");
+                });
+
+            modelBuilder.Entity("MvcMovie.Models.Movie", b =>
+                {
+                    b.Navigation("Artists");
                 });
 #pragma warning restore 612, 618
         }

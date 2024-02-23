@@ -10,95 +10,87 @@ using MvcMovie.Models;
 
 namespace MvcMovie.Controllers
 {
-    public class MoviesController : Controller
+    public class StudioController : Controller
     {
         private readonly MvcMovieContext _context;
 
-        public MoviesController(MvcMovieContext context)
+        public StudioController(MvcMovieContext context)
         {
             _context = context;
         }
 
-        // GET: Movies
+        // GET: Studio
         public async Task<IActionResult> Index()
         {
-              return _context.Movie != null ? 
-                          View(await _context.Movie.ToListAsync()) :
-                          Problem("Entity set 'MvcMovieContext.Movie'  is null.");
+              return _context.Studio != null ? 
+                          View(await _context.Studio.ToListAsync()) :
+                          Problem("Entity set 'MvcMovieContext.Studio'  is null.");
         }
 
-        // GET: Movies/Details/5
+        // GET: Studio/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Movie == null)
+            if (id == null || _context.Studio == null)
             {
                 return NotFound();
             }
 
-            var movie = await _context.Movie
+            var studio = await _context.Studio
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (movie == null)
+            if (studio == null)
             {
                 return NotFound();
             }
 
-            return View(movie);
+            return View(studio);
         }
 
-        // GET: Movies/Create
+        // GET: Studio/Create
         public IActionResult Create()
-        {   
-            ViewData["StudioId"] = new SelectList(_context.Set<Studio>(), "Id", "Name");
-            ViewData["Artists"] = new SelectList(_context.Set<Artist>(), "Id", "Name");
+        {
             return View();
-        
         }
 
-        // POST: Movies/Create
+        // POST: Studio/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,ReleaseDate,Genre,Price,StudioId")] Movie movie)
+        public async Task<IActionResult> Create([Bind("Id,name,country,site")] Studio studio)
         {
             if (ModelState.IsValid)
             {
-                if(_context.Studio.Find(movie.StudioId) == null){
-                    return NotFound();
-                }
-                
-                _context.Add(movie);
+                _context.Add(studio);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(movie);
-                
+            return View(studio);
         }
 
-        // GET: Movies/Edit/5
+        // GET: Studio/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Movie == null)
+            if (id == null || _context.Studio == null)
             {
                 return NotFound();
             }
 
-            var movie = await _context.Movie.FindAsync(id);
-            if (movie == null)
+            var studio = await _context.Studio.FindAsync(id);
+            if (studio == null)
             {
                 return NotFound();
             }
-            return View(movie);
+            return View(studio);
         }
 
-        // POST: Movies/Edit/5
+        // POST: Studio/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,ReleaseDate,Genre,Price")] Movie movie)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,name,country,site")] Studio studio)
         {
-            if (id != movie.Id)
+            if (id != studio.Id)
             {
                 return NotFound();
             }
@@ -107,12 +99,12 @@ namespace MvcMovie.Controllers
             {
                 try
                 {
-                    _context.Update(movie);
+                    _context.Update(studio);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!MovieExists(movie.Id))
+                    if (!StudioExists(studio.Id))
                     {
                         return NotFound();
                     }
@@ -123,49 +115,49 @@ namespace MvcMovie.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(movie);
+            return View(studio);
         }
 
-        // GET: Movies/Delete/5
+        // GET: Studio/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Movie == null)
+            if (id == null || _context.Studio == null)
             {
                 return NotFound();
             }
 
-            var movie = await _context.Movie
+            var studio = await _context.Studio
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (movie == null)
+            if (studio == null)
             {
                 return NotFound();
             }
 
-            return View(movie);
+            return View(studio);
         }
 
-        // POST: Movies/Delete/5
+        // POST: Studio/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Movie == null)
+            if (_context.Studio == null)
             {
-                return Problem("Entity set 'MvcMovieContext.Movie'  is null.");
+                return Problem("Entity set 'MvcMovieContext.Studio'  is null.");
             }
-            var movie = await _context.Movie.FindAsync(id);
-            if (movie != null)
+            var studio = await _context.Studio.FindAsync(id);
+            if (studio != null)
             {
-                _context.Movie.Remove(movie);
+                _context.Studio.Remove(studio);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool MovieExists(int id)
+        private bool StudioExists(int id)
         {
-          return (_context.Movie?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.Studio?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

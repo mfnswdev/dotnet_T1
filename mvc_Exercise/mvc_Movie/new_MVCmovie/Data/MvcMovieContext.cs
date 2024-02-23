@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using MvcMovie.Models;
+using new_MVCmovie.Models;
 
 namespace MvcMovie.Data
 {
@@ -14,12 +14,10 @@ namespace MvcMovie.Data
         {
         }
 
-        public DbSet<MvcMovie.Models.Movie> Movie { get; set; } = default!;
+        public DbSet<new_MVCmovie.Models.Movie> Movie { get; set; } = default!;
 
-        public DbSet<MvcMovie.Models.User> User { get; set; } = default!;
+        public DbSet<new_MVCmovie.Models.Studio> Studio { get; set; } = default!;
 
-        public DbSet<MvcMovie.Models.Artist> Artist { get; set; } = default!;
-
-        public DbSet<MvcMovie.Models.Studio> Studio { get; set; } = default!;
+        public DbSet<new_MVCmovie.Models.Artist> Artist { get; set; } = default!;
     }
 }

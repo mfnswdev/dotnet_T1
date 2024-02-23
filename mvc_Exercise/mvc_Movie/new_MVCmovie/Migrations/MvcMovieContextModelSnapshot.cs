@@ -7,7 +7,7 @@ using MvcMovie.Data;
 
 #nullable disable
 
-namespace MvcMovie.Migrations
+namespace new_MVCmovie.Migrations
 {
     [DbContext(typeof(MvcMovieContext))]
     partial class MvcMovieContextModelSnapshot : ModelSnapshot
@@ -19,46 +19,50 @@ namespace MvcMovie.Migrations
 
             modelBuilder.Entity("ArtistMovie", b =>
                 {
-                    b.Property<int>("Artistsid")
+                    b.Property<int>("ArtistsArtistId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("MoviesId")
+                    b.Property<int>("MoviesMovieId")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("Artistsid", "MoviesId");
+                    b.HasKey("ArtistsArtistId", "MoviesMovieId");
 
-                    b.HasIndex("MoviesId");
+                    b.HasIndex("MoviesMovieId");
 
                     b.ToTable("ArtistMovie");
                 });
 
-            modelBuilder.Entity("MvcMovie.Models.Artist", b =>
+            modelBuilder.Entity("new_MVCmovie.Models.Artist", b =>
                 {
-                    b.Property<int>("id")
+                    b.Property<int>("ArtistId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("bio")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("name")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("site")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("id");
+                    b.HasKey("ArtistId");
 
                     b.ToTable("Artist");
                 });
 
-            modelBuilder.Entity("MvcMovie.Models.Movie", b =>
+            modelBuilder.Entity("new_MVCmovie.Models.Movie", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("MovieId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Genre")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<decimal>("Price")
@@ -71,67 +75,48 @@ namespace MvcMovie.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+                    b.HasKey("MovieId");
 
                     b.ToTable("Movie");
                 });
 
-            modelBuilder.Entity("MvcMovie.Models.Studio", b =>
+            modelBuilder.Entity("new_MVCmovie.Models.Studio", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("StudioId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("country")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("name")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("site")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+                    b.HasKey("StudioId");
 
                     b.ToTable("Studio");
                 });
 
-            modelBuilder.Entity("MvcMovie.Models.User", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("User");
-                });
-
             modelBuilder.Entity("ArtistMovie", b =>
                 {
-                    b.HasOne("MvcMovie.Models.Artist", null)
+                    b.HasOne("new_MVCmovie.Models.Artist", null)
                         .WithMany()
-                        .HasForeignKey("Artistsid")
+                        .HasForeignKey("ArtistsArtistId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MvcMovie.Models.Movie", null)
+                    b.HasOne("new_MVCmovie.Models.Movie", null)
                         .WithMany()
-                        .HasForeignKey("MoviesId")
+                        .HasForeignKey("MoviesMovieId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

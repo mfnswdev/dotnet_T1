@@ -1,4 +1,4 @@
-@model MvcMovie.Models.Movie
+@model new_MVCmovie.Models.Movie
 
 @{
     ViewData["Title"] = "Create";
@@ -10,7 +10,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create" method="post">
+        <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Title" class="control-label"></label>
@@ -34,15 +34,18 @@
             </div>
             <div class="form-group">
                 <label asp-for="StudioId" class="control-label"></label>
-                <input asp-for="StudioId" class="form-control" />
+                <input asp-for="StudioId" class="form-control">
                 <span asp-validation-for="StudioId" class="text-danger"></span>
             </div>
-            <div class="form-group">
+             <div class="form-group">
                 <label asp-for="Artists" class="control-label"></label>
-                <select asp-for="Artists" class="form-control" asp-items="ViewBag.Artists" multiple></select>
+                <select asp-for="Artists">
+                    @foreach (var artist in Model.Artists){
+                        <option value="@artist.Id">@artist.name</option>
+                        }
+                </select>
+                <span asp-validation-for="Artists" class="text-danger"></span>
             </div>
-
-
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>

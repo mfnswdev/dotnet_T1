@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MvcMovie.Data;
 
@@ -10,27 +11,14 @@ using MvcMovie.Data;
 namespace MvcMovie.Migrations
 {
     [DbContext(typeof(MvcMovieContext))]
-    partial class MvcMovieContextModelSnapshot : ModelSnapshot
+    [Migration("20240223172415_ThirdMigration")]
+    partial class ThirdMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.16");
-
-            modelBuilder.Entity("ArtistMovie", b =>
-                {
-                    b.Property<int>("Artistsid")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("MoviesId")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("Artistsid", "MoviesId");
-
-                    b.HasIndex("MoviesId");
-
-                    b.ToTable("ArtistMovie");
-                });
 
             modelBuilder.Entity("MvcMovie.Models.Artist", b =>
                 {
@@ -119,21 +107,6 @@ namespace MvcMovie.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("User");
-                });
-
-            modelBuilder.Entity("ArtistMovie", b =>
-                {
-                    b.HasOne("MvcMovie.Models.Artist", null)
-                        .WithMany()
-                        .HasForeignKey("Artistsid")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MvcMovie.Models.Movie", null)
-                        .WithMany()
-                        .HasForeignKey("MoviesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
