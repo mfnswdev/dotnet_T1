@@ -22,9 +22,9 @@ namespace new_MVCmovie.Controllers
         // GET: Movie
         public async Task<IActionResult> Index()
         {
-              return _context.Movie != null ? 
-                          View(await _context.Movie.ToListAsync()) :
-                          Problem("Entity set 'MvcMovieContext.Movie'  is null.");
+            return _context.Movie != null ?
+                        View(await _context.Movie.ToListAsync()) :
+                        Problem("Entity set 'MvcMovieContext.Movie'  is null.");
         }
 
         // GET: Movie/Details/5
@@ -48,6 +48,7 @@ namespace new_MVCmovie.Controllers
         // GET: Movie/Create
         public IActionResult Create()
         {
+            ViewBag.Artists = new SelectList(_context.Set<Artist>(), "ArtistId", "name");
             return View();
         }
 
@@ -56,8 +57,17 @@ namespace new_MVCmovie.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("MovieId,StudioId,Title,ReleaseDate,Genre,Price")] Movie movie)
+        public async Task<IActionResult> Create([Bind("MovieId,StudioId,Title,ReleaseDate,Genre,Price")] Movie movie, string[] Artists)
         {
+            if (Artists != null && Artists.Any())
+            {
+                var artistIds = Artists.Select(int.Parse).ToList();
+                var selectedArtists = await _context.Artist.Where(a => artistIds.Contains(a.ArtistId)).ToListAsync();
+                movie.Artists = selectedArtists;
+            }
+
+            ViewBag.Artists = new SelectList(_context.Set<Artist>(), "ArtistId", "name");
+
             if (ModelState.IsValid)
             {
                 _context.Add(movie);
@@ -150,14 +160,14 @@ namespace new_MVCmovie.Controllers
             {
                 _context.Movie.Remove(movie);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool MovieExists(int id)
         {
-          return (_context.Movie?.Any(e => e.MovieId == id)).GetValueOrDefault();
+            return (_context.Movie?.Any(e => e.MovieId == id)).GetValueOrDefault();
         }
     }
 }
