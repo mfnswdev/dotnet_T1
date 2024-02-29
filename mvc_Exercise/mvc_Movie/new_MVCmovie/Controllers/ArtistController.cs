@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -10,8 +11,11 @@ using new_MVCmovie.Models;
 
 namespace new_MVCmovie.Controllers
 {
+    [Authorize]
+
     public class ArtistController : Controller
     {
+
         private readonly MvcMovieContext _context;
 
         public ArtistController(MvcMovieContext context)
@@ -22,9 +26,9 @@ namespace new_MVCmovie.Controllers
         // GET: Artist
         public async Task<IActionResult> Index()
         {
-              return _context.Artist != null ? 
-                          View(await _context.Artist.ToListAsync()) :
-                          Problem("Entity set 'MvcMovieContext.Artist'  is null.");
+            return _context.Artist != null ?
+                        View(await _context.Artist.ToListAsync()) :
+                        Problem("Entity set 'MvcMovieContext.Artist'  is null.");
         }
 
         // GET: Artist/Details/5
@@ -46,6 +50,8 @@ namespace new_MVCmovie.Controllers
         }
 
         // GET: Artist/Create
+        [Authorize(Roles = "admin")]
+
         public IActionResult Create()
         {
             return View();
@@ -55,6 +61,8 @@ namespace new_MVCmovie.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize(Roles = "admin")]
+
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ArtistId,name,bio,site")] Artist artist)
         {
@@ -68,6 +76,8 @@ namespace new_MVCmovie.Controllers
         }
 
         // GET: Artist/Edit/5
+        [Authorize(Roles = "admin")]
+
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Artist == null)
@@ -87,6 +97,8 @@ namespace new_MVCmovie.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize(Roles = "admin")]
+
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("ArtistId,name,bio,site")] Artist artist)
         {
@@ -119,6 +131,8 @@ namespace new_MVCmovie.Controllers
         }
 
         // GET: Artist/Delete/5
+        [Authorize(Roles = "admin")]
+
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Artist == null)
@@ -138,6 +152,8 @@ namespace new_MVCmovie.Controllers
 
         // POST: Artist/Delete/5
         [HttpPost, ActionName("Delete")]
+        [Authorize(Roles = "admin")]
+
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
@@ -150,14 +166,14 @@ namespace new_MVCmovie.Controllers
             {
                 _context.Artist.Remove(artist);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ArtistExists(int id)
         {
-          return (_context.Artist?.Any(e => e.ArtistId == id)).GetValueOrDefault();
+            return (_context.Artist?.Any(e => e.ArtistId == id)).GetValueOrDefault();
         }
     }
 }

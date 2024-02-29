@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,8 @@ using new_MVCmovie.Models;
 
 namespace new_MVCmovie.Controllers
 {
+    [Authorize]
+
     public class StudioController : Controller
     {
         private readonly MvcMovieContext _context;
@@ -22,9 +25,9 @@ namespace new_MVCmovie.Controllers
         // GET: Studio
         public async Task<IActionResult> Index()
         {
-              return _context.Studio != null ? 
-                          View(await _context.Studio.ToListAsync()) :
-                          Problem("Entity set 'MvcMovieContext.Studio'  is null.");
+            return _context.Studio != null ?
+                        View(await _context.Studio.ToListAsync()) :
+                        Problem("Entity set 'MvcMovieContext.Studio'  is null.");
         }
 
         // GET: Studio/Details/5
@@ -46,6 +49,8 @@ namespace new_MVCmovie.Controllers
         }
 
         // GET: Studio/Create
+        [Authorize(Roles = "admin")]
+
         public IActionResult Create()
         {
             return View();
@@ -55,6 +60,8 @@ namespace new_MVCmovie.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize(Roles = "admin")]
+
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("StudioId,name,country,site")] Studio studio)
         {
@@ -68,6 +75,8 @@ namespace new_MVCmovie.Controllers
         }
 
         // GET: Studio/Edit/5
+        [Authorize(Roles = "admin")]
+
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Studio == null)
@@ -87,6 +96,8 @@ namespace new_MVCmovie.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize(Roles = "admin")]
+
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("StudioId,name,country,site")] Studio studio)
         {
@@ -119,6 +130,8 @@ namespace new_MVCmovie.Controllers
         }
 
         // GET: Studio/Delete/5
+        [Authorize(Roles = "admin")]
+
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Studio == null)
@@ -138,6 +151,8 @@ namespace new_MVCmovie.Controllers
 
         // POST: Studio/Delete/5
         [HttpPost, ActionName("Delete")]
+        [Authorize(Roles = "admin")]
+
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
@@ -150,14 +165,14 @@ namespace new_MVCmovie.Controllers
             {
                 _context.Studio.Remove(studio);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool StudioExists(int id)
         {
-          return (_context.Studio?.Any(e => e.StudioId == id)).GetValueOrDefault();
+            return (_context.Studio?.Any(e => e.StudioId == id)).GetValueOrDefault();
         }
     }
 }

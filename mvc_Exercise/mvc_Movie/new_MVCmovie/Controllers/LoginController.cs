@@ -17,9 +17,11 @@ namespace new_MVCmovie.Controllers;
 public class LoginController : Controller
 {
     private readonly MvcMovieContext _context;
-    public LoginController(MvcMovieContext context)
+    private readonly IConfiguration _configuration;
+    public LoginController(MvcMovieContext context, IConfiguration configuration)
     {
         _context = context;
+        _configuration = configuration;
     }
     public IActionResult Index()
     {
@@ -32,8 +34,8 @@ public class LoginController : Controller
     {
   
         string token = Auth(login);
-        
-        Response.Cookies.Append("token", "Bearer "+token, new CookieOptions
+       
+        Response.Cookies.Append("token", token, new CookieOptions
         {
             HttpOnly = true,
             Expires = DateTime.Now.AddMinutes(30)
@@ -49,9 +51,9 @@ public class LoginController : Controller
 
      public string GenerateJwtToken(string email, string role)
     {
-        var issuer = "mvcmovie.webapi";
-        var audience = "mvcmovie.webapi";
-        var key = "ajdsoidjw1908637asdanjJKKKaisdjasdn1234noadsjkl88";
+        var issuer = "MvcMovie";
+        var audience = "user";
+        var key = "Esta é a chave secreta do MvcMovie.WebAPI2024residenciatic18";
         //cria uma chave utilizando criptografia simétrica
         var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key ?? ""));
         //cria as credenciais do token
@@ -87,6 +89,7 @@ public class LoginController : Controller
         && _context.User.Any(x => x.password == login.password))
         {
             User? _user = _context.User.FirstOrDefault(x => x.username == login.username);
+            
             string _token = GenerateJwtToken(login.username, _user!.role ?? "user");
             return _token;
            
